@@ -4,8 +4,8 @@ function handleKeyDown() {
   if (!event.ctrlKey) return;
 
   var number = keyCodeToNumber(event.keyCode);
-  if (number) {
-    triggerByIndex(number);
+  if (number != null) {
+    triggerByNumber(number);
   }
 }
 
@@ -16,6 +16,7 @@ function keyCodeToNumber(keyCode) {
 }
 
 
-function triggerByIndex(index) {
+function triggerByNumber(number) {
+  var index = number==0 ? 10 : number;
   chrome.extension.sendRequest(index);
 }
