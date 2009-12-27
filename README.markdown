@@ -11,7 +11,7 @@ Developed against Chromium 4.0.267.0 on OS X.
 
 * Show number in bookmarks bar when pressing Ctrl?
 * Configurable modifier?
-* Support opening in new tab?
+* Support opening in new tab? In foreground or background?
 * Support more than 10 items?
 
 ## Credits and license
