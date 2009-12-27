@@ -16,7 +16,12 @@ Developed against Chromium 4.0.267.0 on OS X.
 
 ## Credits and license
 
-By [Henrik Nyh](http://henrik.nyh.se/) under the MIT license:
+The icon includes these graphics:
+
+  * [Bookmark](http://www.iconfinder.net/icondetails/22509/64/) ("free" license) by [Pixel Mixer](http://www.pixel-mixer.com/).
+  * [Page](http://www.iconfinder.net/icondetails/3784/128/) (LGPL license) by [Everaldo Coelho](http://www.everaldo.com/).
+
+Composed icon and extension by [Henrik Nyh](http://henrik.nyh.se/) under the MIT license:
 
 >  Copyright (c) 2009 Henrik Nyh
 >
