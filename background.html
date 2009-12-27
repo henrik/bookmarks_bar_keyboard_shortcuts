@@ -17,7 +17,9 @@
 
     function withBookmarksBar(callback) {
       chrome.bookmarks.getTree(function(array) {
-        var bookmarks_bar = array[0].children[0];  // Is this guaranteed?
+        // Finding by order is currently guaranteed:
+        // http://groups.google.com/group/chromium-extensions/browse_thread/thread/312986b5f27046ad/ac9b855f984a3b3d
+        var bookmarks_bar = array[0].children[0];
         callback(bookmarks_bar);
       });
     }
