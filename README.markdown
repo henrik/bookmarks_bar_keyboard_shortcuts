@@ -9,7 +9,7 @@ Developed against Chromium 4.0.267.0 on OS X.
 
 ## TODO:
 
-* Show number in bookmarks bar when pressing Ctrl?
+* Show number in bookmarks bar when holding Ctrl?
 * Configurable modifier?
 * Support opening in new tab? In foreground or background?
 * Support more than 10 items?
