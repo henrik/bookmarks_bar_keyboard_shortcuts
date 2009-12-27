@@ -1,0 +1,13 @@
+{
+  "name": "Bookmarks Bar Keyboard Shortcuts",
+  "version": "1.0",
+  "description": "Trigger the first ten Bookmarks Bar items with Ctrl+1 through Ctrl+0.",
+  "background_page": "background.html",
+  "permissions": ["bookmarks", "tabs", "http://*/*", "https://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

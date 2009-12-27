@@ -1,0 +1,28 @@
+<html>
+  <script>
+  
+    function handleRequest(index, sender, sendResponse) {
+      
+      withBookmarksBar(function(bar) {
+        var item = bar.children[index-1];
+        if (item && item.url) {
+          console.log("Tab %o should go to bookmarks bar index %o i.e. %o", sender.tab.id, index, item.url);
+          chrome.tabs.update(sender.tab.id, { url: item.url });
+        } else {
+          console.log("No bookmarks bar item with index %o!", index);
+        }
+        sendResponse(null);
+      });
+    }
+    chrome.extension.onRequest.addListener(handleRequest);
+  
+    function withBookmarksBar(callback) {
+      chrome.bookmarks.getTree(function(array) {
+        var bookmarks_bar = array[0].children[0];  // Is this guaranteed?
+        callback(bookmarks_bar);
+      });
+    }
+    
+  console.log("bbar loaded");
+  </script>
+</html>
