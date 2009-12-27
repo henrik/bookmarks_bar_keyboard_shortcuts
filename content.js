@@ -7,7 +7,9 @@ document.addEventListener('keyup', handleKeyUp, false);
 function handleKeyDown() {
   if (!event.ctrlKey) return;
   if (event.keyCode == CTRL) {
-    console.log("only pressing ctrl");
+    setTimeout(function() {
+      chrome.extension.sendRequest({showIndices: true});
+    }, 1000);
   } else {
     var number = keyCodeToNumber(event.keyCode);
     if (number) {
@@ -18,7 +20,7 @@ function handleKeyDown() {
 
 function handleKeyUp() {
   if (event.keyCode == CTRL) {
-    console.log("releasing ctrl");
+    chrome.extension.sendRequest({hideIndices: true});
   }
 }
 
@@ -29,5 +31,5 @@ function keyCodeToNumber(keyCode) {
 
 function triggerByIndex(index) {
   console.log("trigger by index %o", index);
-  chrome.extension.sendRequest(index);
+  chrome.extension.sendRequest({triggerByIndex: index});
 }

@@ -1,20 +1,63 @@
 <html>
   <script>
   
-    function handleRequest(index, sender, sendResponse) {
+    var indicesAreShowing = false;
+  
+    function handleRequest(request, sender, sendResponse) {
+      sendResponse(null);  // Close connection.
       
+      if (request.triggerByIndex) {
+        triggerByIndexInTab(request.triggerByIndex, sender.tab);
+      } else if (request.showIndices) {
+        showIndices();
+      } else if (request.hideIndices) {
+        hideIndices();
+      }
+    }
+    chrome.extension.onRequest.addListener(handleRequest);
+    
+    function triggerByIndexInTab(index, tab) {
       withBookmarksBar(function(bar) {
         var item = bar.children[index-1];
         if (item && item.url) {
-          console.log("Tab %o should go to bookmarks bar index %o i.e. %o", sender.tab.id, index, item.url);
-          chrome.tabs.update(sender.tab.id, { url: item.url });
+          console.log("Tab %o should go to bookmarks bar index %o i.e. %o", tab.id, index, item.url);
+          chrome.tabs.update(tab.id, { url: item.url });
         } else {
           console.log("No bookmarks bar item with index %o!", index);
         }
-        sendResponse(null);
       });
     }
-    chrome.extension.onRequest.addListener(handleRequest);
+    
+    function showIndices() {
+      if (indicesAreShowing) return;
+      console.log("show indices");
+      
+      withBookmarksBar(function(bar) {
+        console.log("children are %o", bar.children);
+        var child, new_title;
+        for (index in bar.children) {
+          child = bar.children[index];
+          new_title = (parseInt(index, 10)+1) + ". " + child.title;
+          chrome.bookmarks.update(child.id, {title: new_title});
+        }
+        indicesAreShowing = true;
+      });
+    }
+    
+    function hideIndices() {
+      if (!indicesAreShowing) return;
+      console.log("hide indices");
+      
+      withBookmarksBar(function(bar) {
+        var child, new_title;
+        for (index in bar.children) {
+          console.log("hide index %o", index);
+          child = bar.children[index];
+          new_title = child.title.replace(/^\d+\. /, '');
+          chrome.bookmarks.update(child.id, {title: new_title});
+        }
+      });
+    }
   
     function withBookmarksBar(callback) {
       chrome.bookmarks.getTree(function(array) {
