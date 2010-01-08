@@ -2,14 +2,14 @@
 
 Chrome/Chromium extension.
 
-Trigger the first ten Bookmarks Bar items with Ctrl+1 through Ctrl+0.
+Trigger the first ten Bookmarks Bar items with Ctrl+1 through Ctrl+0 (OS X) or Alt+1 through Alt+0 (Windows and Linux).
 
 Developed against Chromium 4.0.267.0 on OS X.
 
 
 ## TODO:
 
-* Show number in bookmarks bar when holding Ctrl?
+* Show number in bookmarks bar when holding modifier?
 * Configurable modifier?
 * Support opening in new tab? In foreground or background?
 * Support more than 10 items?
