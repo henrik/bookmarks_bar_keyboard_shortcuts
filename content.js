@@ -9,16 +9,27 @@ function handleKeyDown() {
   }
 }
 
-// Ctrl is easier to locate than Alt, so that is used on OS X. While Chrome on
-// OS X uses Cmd + numbers to select tabs, Windows and Linux supposedly use Ctrl
-// for that purpose, so they get to use Alt with the bookmarks bar.
 function modifierIsDown(event) {
-  var expected_modifiers = isMac() ? 'Ctrl' : 'Alt';
-  return activeModifiers(event) == expected_modifiers;
+  return activeModifiers(event) == expectedModifiers();
 }
 
-function isMac() {
-  return navigator.platform.indexOf("Mac") === 0;
+// Ctrl is easier to locate than Alt, so that is used on OS X. While Chrome on
+// OS X uses Cmd + numbers to select tabs, Windows supposedly uses Ctrl for
+// that purpose, so Windows gets to use Alt with the bookmarks bar.
+// Chrome on Linux allegedly hogs both Ctrl and Alt, so they get to use Meta:
+// http://github.com/henrik/bookmarks_bar_keyboard_shortcuts/issues#issue/1
+//
+// Note that including Shift in expected modifiers will break, as pressing a
+// number key will send some shifted symbol, not a number.
+
+function expectedModifiers() {
+  if (navigator.platform.indexOf("Mac") === 0) {  // OS X
+    return 'Ctrl';
+  } else if (navigator.platform.indexOf("Win") === 0) {  // Windows
+    return 'Alt';
+  } else {  // Linux
+    return 'Meta';
+  }
 }
 
 function activeModifiers(event) {

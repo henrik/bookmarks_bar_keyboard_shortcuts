@@ -1,7 +1,7 @@
 {
   "name": "Bookmarks Bar Keyboard Shortcuts",
-  "version": "1.1",
-  "description": "Trigger the first ten Bookmarks Bar items with Ctrl+1 through Ctrl+0 (OS X) or Alt+1 through Alt+0 (Windows and Linux).",
+  "version": "1.2",
+  "description": "Trigger the first ten Bookmarks Bar items with Ctrl+1 through Ctrl+0 (on OS X; it's Alt on Windows, Meta on Linux).",
   "background_page": "background.html",
   "permissions": ["bookmarks", "tabs", "http://*/*", "https://*/*"],
   "content_scripts": [

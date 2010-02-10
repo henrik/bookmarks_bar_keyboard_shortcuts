@@ -2,7 +2,7 @@
 
 Chrome/Chromium extension.
 
-Trigger the first ten Bookmarks Bar items with Ctrl+1 through Ctrl+0 (OS X) or Alt+1 through Alt+0 (Windows and Linux).
+Trigger the first ten Bookmarks Bar items with Ctrl+1 through Ctrl+0 (on OS X; it's Alt on Windows, Meta on Linux).
 
 Developed against Chromium 4.0.267.0 on OS X.
 
@@ -13,6 +13,7 @@ Developed against Chromium 4.0.267.0 on OS X.
 * Configurable modifier?
 * Support opening in new tab? In foreground or background?
 * Support more than 10 items?
+
 
 ## Credits and license
 
