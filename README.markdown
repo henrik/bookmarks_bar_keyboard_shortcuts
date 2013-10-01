@@ -1,11 +1,7 @@
 # Chrome extension: Bookmarks Bar Keyboard Shortcuts
 
 
-
-
-NOTE: This repo is no longer being maintained. Sorry! See if there's a more active fork.
-
-
+**NOTE: This repo is no longer being maintained. Sorry! See if there's a more active fork.**
 
 
 Chrome/Chromium extension.
