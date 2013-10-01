@@ -1,5 +1,13 @@
 # Chrome extension: Bookmarks Bar Keyboard Shortcuts
 
+
+
+
+NOTE: This repo is no longer being maintained. Sorry! See if there's a more active fork.
+
+
+
+
 Chrome/Chromium extension.
 
 Trigger the first ten Bookmarks Bar items with Ctrl+1 through Ctrl+0 (on OS X; it's Alt on Windows, Meta on Linux).
